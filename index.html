@@ -1,15 +1,19 @@
 <html>
 	<head>
-	<title>Jim's sample page</title>
-	<META HTTP-EQUIV="refresh" CONTENT="30">
+        <title>Calendar page</title>
+        <META HTTP-EQUIV="refresh" CONTENT="900">
+        <script>
+            function setFocus(){
+                var iframe = document.getElementById("calendar");
+                iframe.contentWindow.focus(); }
+        </script>
 	</head>
-<body>
+    <body onLoad="setFocus()">
 
-	<iframe src="https://calendar.google.com/calendar/embed?src=jimdibb%40gmail.com&ctz=America/New_York" 
-		style="border: 0" width="1300" height="500" frameborder="0" scrolling="no"></iframe>
-        <iframe style="align:left"id="forecast_embed" type="text/html" frameborder="0" height="1300px" width="830px" src="http://forecast.io/embed/#lat=42.290161&lon=-71.4863357&name=Framingham"> </iframe>
-		<!--<span style="display: block !important; width: 320px; text-align: center; font-family: sans-serif; font-size: 12px;"><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:01702.1.99999&bannertypeclick=wu_clean2day" title="Framingham, Massachusetts Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_clean2day_cond&airportcode=KOWD&ForcedCity=Framingham&ForcedState=MA&zip=01702&language=EN" alt="Find more about Weather in Framingham, MA" width="300" /></a><br><a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:01702.1.99999&bannertypeclick=wu_clean2day" 
-		title="Get latest Weather Forecast updates" style="font-family: sans-serif; font-size: 12px" target="_blank">Click for weather forecast</a></span>
-	--></body>
+        <iframe src="https://calendar.google.com/calendar/embed?src=jimdibb%40gmail.com&ctz=America/New_York" 
+            style="border: 0" width="1300" height="500" frameborder="0" scrolling="no" id="calendar"></iframe>
+        <iframe style="align:left"id="forecast_embed" type="text/html" frameborder="0" height="1300px" width="830px" 
+            src="http://forecast.io/embed/#lat=42.290161&lon=-71.4863357&name=Framingham"> </iframe>
+    </body>
 
 </html>
