@@ -21,6 +21,7 @@ device = uinput.Device([
 view = 'm'
 try:
 	while True:
+		time.sleep(0.1)
 		input_state_back = GPIO.input(B1)
 		input_state_forward = GPIO.input(B2)
 		input_state_multi = GPIO.HIGH
