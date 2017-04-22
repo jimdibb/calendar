@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import requests
 import json
 import re
@@ -70,8 +72,9 @@ else:
 	today= date.today()
 	
 	logfile= open("/home/pi/tmp/currentWeather.log", 'a')
-	logfile.writeln(datetime.now())
-	logfile.write(data.text)
+	print (datetime.now().isoformat(' '))
+	logfile.write(datetime.now().isoformat(' ')+'\n')
+	logfile.write(data.text+'\n')
 	logfile.close()
 
 if (debug):
