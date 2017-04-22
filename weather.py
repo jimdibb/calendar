@@ -49,7 +49,7 @@ def process_high_low(wdata, today):
 		print (highlow)
 	return(highlow)
 	
-debug=1 #use the api to grab the data.  Use the practice data below if set to true.
+debug=0 #use the api to grab the data.  Use the practice data below if set to true.
 			# the debug date matches the data
 
 if (debug):
