@@ -28,9 +28,11 @@ def adjustIcon(icon, dateT):
 def days_future(today, day_delta):
 	newdate = date.fromordinal(today.toordinal() + day_delta)
 	day = newdate.strftime('%A')
-	print (newdate)
+	
 	noontime = datetime.combine(newdate, time(11))
-	print (noontime)
+	if (debug):
+		print (newdate)
+		print (noontime)
 	return (newdate,day,noontime)
 	
 def process_high_low(wdata, today):
@@ -71,12 +73,11 @@ else:
 	resp=data.json()
 	today= date.today()
 	
-	logfile= open("/home/pi/tmp/currentWeather.log", 'a')
-	print (datetime.now().isoformat(' '))
-	logfile.write(datetime.now().isoformat(' ')+'\n')
-	logfile.write(data.text+'\n')
-	logfile.close()
-
+	with open("/home/pi/tmp/currentWeather.log", 'a') as logfile:
+		print (datetime.now().isoformat(' '))
+		logfile.write(datetime.now().isoformat(' ')+'\n')
+		logfile.write(data.text+'\n')
+	
 if (debug):
 	print("today is %s" % today)
 
@@ -129,9 +130,9 @@ with tag('html'):
 							with tag('td'):
 								text("%i / %i" % (highlow[newdate]['high'], highlow[newdate]['low']))	
 						break	
-target = open("currentWeather.html", 'w')	
-target.write(doc.getvalue())
-target.close()
+with open("/tmp/currentWeather.html", 'w')	as target:
+	target.write(doc.getvalue())
+	
 		
 	
 		
