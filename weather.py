@@ -88,6 +88,7 @@ doc.asis('<!DOCTYPE html>')
 with tag('html'):
 	with tag('head'):
 		doc.asis('<link rel="stylesheet" href"mystyles.css"/>')
+		doc.asis('<META HTTP-EQUIV="refresh" CONTENT="900">')
 	with tag('body'):
 		
 		with tag('h3'):
@@ -130,7 +131,7 @@ with tag('html'):
 							with tag('td'):
 								text("%i / %i" % (highlow[newdate]['high'], highlow[newdate]['low']))	
 						break	
-with open("/tmp/currentWeather.html", 'w')	as target:
+with open("/home/pi/tmp/currentWeather.html", 'w')	as target:
 	target.write(doc.getvalue())
 	
 		
