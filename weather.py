@@ -6,6 +6,7 @@ import re
 from datetime import datetime,time,date
 from yattag import Doc
 import sys
+import time as timetime # this is funny so as not to conflict with datetime.time imported above
 
 iconreg = re.compile('([\d]+)[nd]')
 
@@ -28,8 +29,14 @@ def adjustIcon(icon, dateT):
 def days_future(today, day_delta):
 	newdate = date.fromordinal(today.toordinal() + day_delta)
 	day = newdate.strftime('%A')
-	
-	noontime = datetime.combine(newdate, time(11))
+	tdata = timetime.localtime()
+	if (tdata.tm_isdst>0):
+		noonhour = 11 # in dst this is the closest match to noon
+	else:
+		noonhour = 13 # in non-dst this is the closest match
+	if (debug):
+		print noonhour
+	noontime = datetime.combine(newdate, time(noonhour))
 	if (debug):
 		print (newdate)
 		print (noontime)
