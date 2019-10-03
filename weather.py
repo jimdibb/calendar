@@ -35,7 +35,7 @@ def days_future(today, day_delta):
 	else:
 		noonhour = 13 # in non-dst this is the closest match
 	if (debug):
-		print noonhour
+		print (noonhour)
 	noontime = datetime.combine(newdate, time(noonhour))
 	if (debug):
 		print (newdate)
